@@ -1,0 +1,32 @@
+<div id="create-task" style="margin-top: 50px">
+  <h5>Create New Task</h5>
+<app-add-edit-task (loadTasks)="hanldeLoadTaskEvent()" [taskId]="taskId">
+</app-add-edit-task>
+</div>
+<hr />
+<div id="task-list">
+  <h5>Task List</h5>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Task Name</th>
+        <th scope="col">When</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let task of tasks;let j = index">
+      <tr>
+        <th scope="row">1</th>
+        <td>{{task.taskName}}</td>
+        <td>{{task.when}}</td>
+        <td>{{task.status}}</td>
+        <td>
+          <button type="button" class="btn btn-success" (click)="editTask(task.taskEntityId)">Edit</button>
+          <button type="button" class="btn btn-danger" (click)="deleteTask(task.taskEntityId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
